@@ -172,7 +172,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ip-Wl-lbp">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="862"/>
                                 <connections>
                                     <action selector="dismissSegue:" destination="ZQg-Nk-CJF" eventType="touchUpInside" id="pzv-Bw-5AM"/>
                                 </connections>
@@ -188,7 +188,7 @@
                             <constraint firstItem="kRX-Tq-i8N" firstAttribute="top" secondItem="sO1-t7-uY9" secondAttribute="bottom" constant="23" id="9Yg-JM-jeb"/>
                             <constraint firstItem="sO1-t7-uY9" firstAttribute="leading" secondItem="Kku-Oj-9Ee" secondAttribute="leadingMargin" id="B5p-EH-9vM"/>
                             <constraint firstItem="kRX-Tq-i8N" firstAttribute="centerX" secondItem="LSN-bG-dYb" secondAttribute="centerX" id="ChE-gm-7pw"/>
-                            <constraint firstItem="4ip-Wl-lbp" firstAttribute="bottom" secondItem="3yP-Gi-c7D" secondAttribute="bottom" constant="607" id="Epw-W8-rKT"/>
+                            <constraint firstItem="4ip-Wl-lbp" firstAttribute="bottom" secondItem="3yP-Gi-c7D" secondAttribute="bottom" constant="802" id="Epw-W8-rKT"/>
                             <constraint firstItem="3yP-Gi-c7D" firstAttribute="centerX" secondItem="X4d-cf-RDH" secondAttribute="centerX" id="LoI-mm-R3O"/>
                             <constraint firstItem="4ip-Wl-lbp" firstAttribute="leading" secondItem="3yP-Gi-c7D" secondAttribute="leading" constant="-167.5" id="PtS-QL-78Q"/>
                             <constraint firstItem="3yP-Gi-c7D" firstAttribute="centerX" secondItem="sO1-t7-uY9" secondAttribute="centerX" id="Qc2-1Q-FBM"/>
