@@ -9,24 +9,58 @@
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-   
-    let array:[String] = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    private var users: [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NetworkingService.shared.getUsers { (response) in
-            print(response.users)
+
+        collectionView.layer.cornerRadius = 0.5
+        
+        let nib = UINib(nibName: "UserCollectionViewCell", bundle: nil)
+        self.collectionView.register(nib, forCellWithReuseIdentifier: "UserCollectionViewCell")
+        
+        NetworkingService.shared.getUsers { [weak self] (response) in
+            self?.users = response.users
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
         }
     }
     
     //Number of views
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return array.count
+        return users.count
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView,
+                                 didSelectItemAt indexPath: IndexPath)
+    {
+        self.performSegue(withIdentifier: "UserDetailVC", sender: indexPath.row)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let userCell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as! UserCollectionViewCell
-        userCell.backgroundColor = UIColor.green
-        return userCell
+        if let userCell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCollectionViewCell", for: indexPath) as? UserCollectionViewCell {
+            
+            userCell.updateCell(with: users[indexPath.row])
+            return userCell
+        } else {
+            return UICollectionViewCell()
+        }
+    }
+}
+extension UICollectionView {
+
+    func dropShadow() {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize(width: -1, height: 1)
+        self.layer.shadowRadius = 1
+        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
     }
 }
