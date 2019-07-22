@@ -101,9 +101,11 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="mUZ-8d-xBU"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoHomeFriends" translatesAutoresizingMaskIntoConstraints="NO" id="xeq-Wk-mN4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoHomeFriends" translatesAutoresizingMaskIntoConstraints="NO" id="xeq-Wk-mN4">
                                 <rect key="frame" x="167" y="20" width="40" height="40"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="C0j-VA-E1p"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="MV5-Cc-mbk"/>
                                     <constraint firstAttribute="width" constant="40" id="WTL-8H-2sa"/>
                                     <constraint firstAttribute="height" constant="40" id="fR6-wF-dCF"/>
                                 </constraints>
